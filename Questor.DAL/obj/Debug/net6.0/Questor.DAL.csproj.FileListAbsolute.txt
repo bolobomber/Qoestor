@@ -1,0 +1,14 @@
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\bin\Debug\net6.0\Questor.DAL.deps.json
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\bin\Debug\net6.0\Questor.DAL.runtimeconfig.json
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\bin\Debug\net6.0\Questor.DAL.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\bin\Debug\net6.0\ref\Questor.DAL.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\bin\Debug\net6.0\Questor.DAL.pdb
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.csproj.AssemblyReference.cache
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.AssemblyInfoInputs.cache
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.AssemblyInfo.cs
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.csproj.CoreCompileInputs.cache
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\ref\Questor.DAL.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.pdb
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.DAL\obj\Debug\net6.0\Questor.DAL.genruntimeconfig.cache

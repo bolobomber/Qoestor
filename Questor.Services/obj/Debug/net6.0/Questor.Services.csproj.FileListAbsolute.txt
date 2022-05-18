@@ -1,0 +1,15 @@
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\bin\Debug\net6.0\Questor.Services.deps.json
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\bin\Debug\net6.0\Questor.Services.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\bin\Debug\net6.0\ref\Questor.Services.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\bin\Debug\net6.0\Questor.Services.pdb
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\bin\Debug\net6.0\Questor.DAL.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\bin\Debug\net6.0\Questor.DAL.pdb
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.csproj.AssemblyReference.cache
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.AssemblyInfoInputs.cache
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.AssemblyInfo.cs
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.csproj.CoreCompileInputs.cache
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.csproj.CopyComplete
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\ref\Questor.Services.dll
+C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor.Services\obj\Debug\net6.0\Questor.Services.pdb

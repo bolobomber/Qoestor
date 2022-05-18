@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace Questor.DAL.Models
 {
-    internal class User
+    public class User
     {
         public int Id { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        // public List<CreatedQuest> CreatedQuests { get; set; }
-       // public List<CompletedQuest> CompletedQuest { get; set; }
-
+       
     }
+
+    public class Creator : User
+    { 
+        public List<Quest> CreatedQuests { get; set; }
+    }
+    public class Participant : User
+    {
+        public List<QuestResult> CompletedQuest { get; set; }
+    }
+
+
 }
