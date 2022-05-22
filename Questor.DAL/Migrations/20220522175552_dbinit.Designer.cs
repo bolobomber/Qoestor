@@ -11,8 +11,8 @@ using Questor.DAL;
 namespace Questor.DAL.Migrations
 {
     [DbContext(typeof(QuestorContext))]
-    [Migration("20220518231919_Questor-init")]
-    partial class Questorinit
+    [Migration("20220522175552_dbinit")]
+    partial class dbinit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,16 +31,13 @@ namespace Questor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<bool>("IsConformity")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsCorrect")
                         .HasColumnType("bit");
 
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Value")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -51,56 +48,6 @@ namespace Questor.DAL.Migrations
                     b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("Questor.DAL.Models.Creator", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Creators");
-                });
-
-            modelBuilder.Entity("Questor.DAL.Models.Participant", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Participants");
-                });
-
             modelBuilder.Entity("Questor.DAL.Models.Quest", b =>
                 {
                     b.Property<int>("Id")
@@ -109,9 +56,6 @@ namespace Questor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -119,15 +63,18 @@ namespace Questor.DAL.Migrations
                     b.Property<bool>("IsPublic")
                         .HasColumnType("bit");
 
-                    b.Property<string>("NameOfQuest")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("QuestURL")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TimeLimit")
+                        .HasColumnType("int");
+
+                    b.Property<string>("URL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<bool>("WriteOffControlMode")
@@ -135,7 +82,7 @@ namespace Questor.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatorId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Quests");
                 });
@@ -155,21 +102,19 @@ namespace Questor.DAL.Migrations
                     b.Property<int>("PointsPerQuestion")
                         .HasColumnType("int");
 
+                    b.Property<int>("QeustionType")
+                        .HasColumnType("int");
+
                     b.Property<int>("QuestId")
                         .HasColumnType("int");
 
-                    b.Property<string>("TitleOfQuestion")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TypeOfQuestionId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("QuestId");
-
-                    b.HasIndex("TypeOfQuestionId");
 
                     b.ToTable("Questions");
                 });
@@ -185,9 +130,6 @@ namespace Questor.DAL.Migrations
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ParticipantId")
-                        .HasColumnType("int");
-
                     b.Property<int>("QuestId")
                         .HasColumnType("int");
 
@@ -201,16 +143,19 @@ namespace Questor.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
 
-                    b.HasIndex("ParticipantId");
-
                     b.HasIndex("QuestId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("QuestResults");
                 });
 
-            modelBuilder.Entity("Questor.DAL.Models.TypeOfQuestion", b =>
+            modelBuilder.Entity("Questor.DAL.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -218,13 +163,21 @@ namespace Questor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("NameofType")
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TypeOfQuestions");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Questor.DAL.Models.Answer", b =>
@@ -240,13 +193,13 @@ namespace Questor.DAL.Migrations
 
             modelBuilder.Entity("Questor.DAL.Models.Quest", b =>
                 {
-                    b.HasOne("Questor.DAL.Models.Creator", "Creator")
+                    b.HasOne("Questor.DAL.Models.User", "User")
                         .WithMany("CreatedQuests")
-                        .HasForeignKey("CreatorId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Creator");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Questor.DAL.Models.Question", b =>
@@ -257,44 +210,26 @@ namespace Questor.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Questor.DAL.Models.TypeOfQuestion", "TypeOfQuestion")
-                        .WithMany("Questions")
-                        .HasForeignKey("TypeOfQuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Quest");
-
-                    b.Navigation("TypeOfQuestion");
                 });
 
             modelBuilder.Entity("Questor.DAL.Models.QuestResult", b =>
                 {
-                    b.HasOne("Questor.DAL.Models.Participant", "Participant")
-                        .WithMany("CompletedQuest")
-                        .HasForeignKey("ParticipantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Questor.DAL.Models.Quest", "Quest")
                         .WithMany("QuestResults")
                         .HasForeignKey("QuestId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Participant");
+                    b.HasOne("Questor.DAL.Models.User", "User")
+                        .WithMany("CompletedQuests")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Quest");
-                });
 
-            modelBuilder.Entity("Questor.DAL.Models.Creator", b =>
-                {
-                    b.Navigation("CreatedQuests");
-                });
-
-            modelBuilder.Entity("Questor.DAL.Models.Participant", b =>
-                {
-                    b.Navigation("CompletedQuest");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Questor.DAL.Models.Quest", b =>
@@ -309,9 +244,11 @@ namespace Questor.DAL.Migrations
                     b.Navigation("Answers");
                 });
 
-            modelBuilder.Entity("Questor.DAL.Models.TypeOfQuestion", b =>
+            modelBuilder.Entity("Questor.DAL.Models.User", b =>
                 {
-                    b.Navigation("Questions");
+                    b.Navigation("CompletedQuests");
+
+                    b.Navigation("CreatedQuests");
                 });
 #pragma warning restore 612, 618
         }

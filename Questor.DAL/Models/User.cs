@@ -9,20 +9,11 @@ namespace Questor.DAL.Models
     public class User
     {
         public int Id { get; set; }
-        public string Username { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-       
-    }
-
-    public class Creator : User
-    { 
         public List<Quest> CreatedQuests { get; set; }
+        public List<QuestResult> CompletedQuests { get; set; }
     }
-    public class Participant : User
-    {
-        public List<QuestResult> CompletedQuest { get; set; }
-    }
-
 
 }

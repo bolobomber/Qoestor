@@ -8,8 +8,11 @@ namespace Questor.DAL.Models
 {
     public class QuestResult
     {
-        public int id { get; set; }
-        public Participant Participant { get; set; }
+        public int Id { get; set; }
+       // public Participant Participant { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public int QuestId { get; set; }
         public Quest Quest { get; set; }
         public bool IsCompleted { get; set; }
         public string TimeInQuest { get; set; }
