@@ -7,7 +7,7 @@ using Questor.DAL.Models;
 
 namespace Questor.DAL.Interface.Repositories
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
         public Task Add(User user);
         public Task Delete(int userId);

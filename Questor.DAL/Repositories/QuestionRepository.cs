@@ -34,7 +34,7 @@ public class QuestionRepository : IQuestionRepository
        return await context.Questions.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<List<Question>> GetQuestsByQuestId(int id)
+    public async Task<List<Question>> GetQuestionsByQuestId(int id)
     {
         return await context.Questions.Where(x => x.QuestId == id).ToListAsync();
     }
