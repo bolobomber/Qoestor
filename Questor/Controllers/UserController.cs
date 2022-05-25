@@ -10,7 +10,7 @@ namespace Questor.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService userService;
-
+            
         public UserController(IUserService userService)
         {
             this.userService = userService;

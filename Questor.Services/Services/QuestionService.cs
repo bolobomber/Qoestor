@@ -41,6 +41,7 @@ public class QuestionService : IQuestionService
         question.LinkTophoto = linkToPhoto;
         question.PointsPerQuestion =pointPerQuestion;
 
+
         await questionRepository.Update(question);
 
     }
