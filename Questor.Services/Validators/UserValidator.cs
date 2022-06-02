@@ -8,9 +8,7 @@ namespace Questor.Services.Validators;
     {
         public UserValidator()
         {
-            //RuleFor(user => user.Id).GreaterThan(0)
-            //    .WithErrorCode(nameof(HttpStatusCode.BadRequest))
-            //    .WithMessage("id содержит только числа");
+           
             RuleFor(user => user.Name)
                 .Length(4, 15)
                 .WithErrorCode(nameof(HttpStatusCode.BadRequest))

@@ -13,7 +13,7 @@ public class QuestService : IQuestService
         this.questRepository = questRepository;
     }
     public async Task AddQuest(string questName, string questDescription, bool isPublic, bool writeOffControleMode, int timeLimit,
-        int userId)
+        string userId)
     {
         var quest = new Quest()
         {
@@ -23,6 +23,7 @@ public class QuestService : IQuestService
             WriteOffControlMode = writeOffControleMode,
             TimeLimit = timeLimit,
             UserId = userId
+
         };
         await questRepository.Add(quest);
     }
@@ -52,7 +53,7 @@ public class QuestService : IQuestService
         return await questRepository.GetQuestById(questId);
     }
 
-    public async Task<List<Quest>> GetQuestsByUserId(int userId)
+    public async Task<List<Quest>> GetQuestsByUserId(string userId)
     {
         return await questRepository.GetQuestsByUserId(userId);
 

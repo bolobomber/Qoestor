@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Questor.DAL.Models;
+using Questor.DAL.Models.ViewModels;
 using Questor.Services.Interfaces;
 
 namespace Questor.Controllers
@@ -22,10 +23,10 @@ namespace Questor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuest(string questName, string questDescription, bool isPublic,
-            bool writeOffControleMode, int timeLimit, int userId)
-        {
-            await questService.AddQuest(questName, questDescription, isPublic, writeOffControleMode, timeLimit, userId);
+        public async Task<IActionResult> AddQuest([FromBody] QuestViewModel questViewModel, string userId)
+        {   
+            
+            await questService.AddQuest(questViewModel.Name, questViewModel.Description, questViewModel.IsPublic, questViewModel.WriteOffControlMode, questViewModel.TimeLimit, userId);
             return StatusCode(StatusCodes.Status201Created);
         }
 
@@ -46,7 +47,7 @@ namespace Questor.Controllers
         }
 
         [HttpGet("QuestByUserId")]
-        public async Task<List<Quest>> GetQuestByUserId (int userId)
+        public async Task<List<Quest>> GetQuestByUserId (string userId)
         {
             return await questService.GetQuestsByUserId(userId);
         }

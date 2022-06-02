@@ -10,8 +10,9 @@ namespace Questor.DAL.Interface.Repositories
     public interface IUserRepository
     {
         public Task Add(User user);
-        public Task Delete(int userId);
+        public Task Delete(string userId);
         public Task Update(User user);
-        public Task<User> GetById(int userId);
+        public Task<User> GetById(string userId);
+        public Task<List<User>> GetAllUsers();
     }
 }

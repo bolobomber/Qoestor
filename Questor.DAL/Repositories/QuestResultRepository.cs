@@ -40,7 +40,7 @@ public class QuestResultRepository : IQuestResoultRepository
         return await context.QuestResults.Where(x => x.QuestId == questId).ToListAsync();
     }
 
-    public async Task<List<QuestResult>> GetQuestResultByUserId(int userId)
+    public async Task<List<QuestResult>> GetQuestResultByUserId(string userId)
     {
         return await context.QuestResults.Where(x => x.UserId == userId).ToListAsync();
     }

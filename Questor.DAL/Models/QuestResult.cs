@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Questor.DAL.Interface;
 
 namespace Questor.DAL.Models
 {
-    public class QuestResult
+    public class QuestResult : IEntity
     {
         public int Id { get; set; }
-       // public Participant Participant { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
         public int QuestId { get; set; }
         public Quest Quest { get; set; }

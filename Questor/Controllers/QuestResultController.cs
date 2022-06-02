@@ -23,7 +23,7 @@ namespace Questor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuestResult(int userId, int questId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail)
+        public async Task<IActionResult> AddQuestResult(string userId, int questId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail)
         {
             await questResultService.AddQuestResult(userId, questId, isCompleted, TimeInQuest, result, sentResultToEmail);
             return StatusCode(StatusCodes.Status201Created);
@@ -45,7 +45,7 @@ namespace Questor.Controllers
         }
 
         [HttpGet("QuestsResultsForUser")]
-        public async Task<List<QuestResult>> GetQuestResultsByUserId(int userId)
+        public async Task<List<QuestResult>> GetQuestResultsByUserId(string userId)
         {
             return await questResultService.GetQuestResultByUserId(userId);
         }

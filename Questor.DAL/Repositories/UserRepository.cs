@@ -24,7 +24,7 @@ namespace Questor.DAL.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(string id)
         {
             context.Remove(await context.Users.FirstOrDefaultAsync(x => x.Id == id));
             await context.SaveChangesAsync();
@@ -36,11 +36,14 @@ namespace Questor.DAL.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task<User> GetById(int id)
+        public async Task<User> GetById(string id)
         {
             return await context.Users.FirstOrDefaultAsync(x => x.Id == id);
         }
-
+        public async Task<List<User>> GetAllUsers()
+        {
+            return await context.Users.ToListAsync();
+        }
     }
 
 }

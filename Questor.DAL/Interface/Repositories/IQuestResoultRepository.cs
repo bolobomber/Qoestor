@@ -9,5 +9,5 @@ public interface IQuestResoultRepository
     public Task Update(QuestResult questResult);
     public Task<QuestResult> GetQuestResultById(int questResultId);
     public Task<List<QuestResult>> GetQuestResultsByQuestId(int questId);
-    public Task<List<QuestResult>> GetQuestResultByUserId(int userId);
+    public Task<List<QuestResult>> GetQuestResultByUserId(string userId);
 }

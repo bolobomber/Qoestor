@@ -118,7 +118,6 @@ C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.
 C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.DotNet.Scaffolding.Shared.dll
 C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.VisualStudio.Debugger.Contracts.dll
 C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\nenchin\source\repos\DIPLOM\Questor\Questor\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll

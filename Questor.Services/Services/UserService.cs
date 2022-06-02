@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Security.Cryptography;
+using FluentValidation;
 using Questor.DAL.Models;
 using Questor.Services.Interfaces;
 using Questor.DAL.Interface.Repositories;
@@ -28,17 +29,19 @@ public class UserService : IUserService
         await userRepository.Add(user);
     }
 
-    public async Task DeleteUser(int id)
+    public async Task DeleteUser(string id)
     {
         await userRepository.Delete(id);
     }
 
-    public async Task<User> GetUserById(int id)
+    public async Task<User> GetUserById(string id)
     {
         return await userRepository.GetById(id);
     }
 
-    public async Task UpdateUser(int id, string name, string email, string password)
+  
+
+    public async Task UpdateUser(string id, string name, string email, string password)
     {
         var user = await userRepository.GetById(id);
 
@@ -47,5 +50,10 @@ public class UserService : IUserService
         user.Password = password;
         await userValidator.ValidateAndThrowAsync(user);
         await userRepository.Update(user);
+    }
+
+    public async Task<List<User>> GetAllUsers()
+    {
+        return await userRepository.GetAllUsers();
     }
 }

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Questor.DAL.Interface;
 using Questor.DAL.Models.Enums;
 
 namespace Questor.DAL.Models
 {
-    public class Question
+    public class Question : IEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }

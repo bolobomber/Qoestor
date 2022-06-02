@@ -37,13 +37,11 @@ namespace Questor.DAL.Repositories
         public async Task<Quest> GetQuestById(int questId)
         {
             return await context.Quests.FirstOrDefaultAsync(x => x.Id == questId);
-
         }
 
-        public async Task<List<Quest>> GetQuestsByUserId(int userId)
+        public async Task<List<Quest>> GetQuestsByUserId(string userId)
         {
-            return await context.Quests.Where(x => x.UserId == userId).ToListAsync();
-
+            return await context.Quests.Where(x => x.User.Id == userId).ToListAsync();
         }
 
         public async Task<List<Quest>> GetAllPublicQuest()
