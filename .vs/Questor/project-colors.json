@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9f023f31-701c-4b82-ae8a-778781c73b3d": {
+      "ProjectGuid": "9f023f31-701c-4b82-ae8a-778781c73b3d",
+      "DisplayName": "Questor",
+      "ColorIndex": 0
+    },
+    "3b007533-cbde-43c1-870d-4532739534a5": {
+      "ProjectGuid": "3b007533-cbde-43c1-870d-4532739534a5",
+      "DisplayName": "DLL",
+      "ColorIndex": 1
+    },
+    "16e1bf13-dc69-46d6-93e4-a2ed102240ab": {
+      "ProjectGuid": "16e1bf13-dc69-46d6-93e4-a2ed102240ab",
+      "DisplayName": "Questor.Services",
+      "ColorIndex": 2
+    },
+    "c963d280-3957-4422-a23a-d21a8f84b936": {
+      "ProjectGuid": "c963d280-3957-4422-a23a-d21a8f84b936",
+      "DisplayName": "Questor.DAL",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Прочие файлы",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}
