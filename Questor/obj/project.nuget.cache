@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Z2R1xh8M4E858KHaxxGpH+urd3nAiK2i4q8NwfDDMjgTMcggxCSA7PqgXlvrsk5cwEaak4pDe91vlmQRPXUN2Q==",
+  "dgSpecHash": "nCCuMZ2yIIXxHpMyb72MQ2VHQWuY97TmiBSZh6Ev4Ptpo/4P33xsuHavtWOhy+G7JvuatX0xGXf2rK6FsIMN+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\nenchin\\source\\repos\\DIPLOM\\Questor\\Questor\\Questor.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,7 @@
     "C:\\Users\\nenchin\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\nenchin\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\nenchin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\nenchin\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
     "C:\\Users\\nenchin\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\nenchin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.5\\microsoft.visualstudio.web.codegeneration.6.0.5.nupkg.sha512",
     "C:\\Users\\nenchin\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\6.0.5\\microsoft.visualstudio.web.codegeneration.core.6.0.5.nupkg.sha512",

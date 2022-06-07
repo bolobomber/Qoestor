@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Questor.DAL.Models;
+using Questor.DAL.Models.ViewModels;
 using Questor.Services.Interfaces;
 
 namespace Questor.Controllers
@@ -23,9 +24,10 @@ namespace Questor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuestResult(string userId, int questId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail)
+        public async Task<IActionResult> AddQuestResult([FromBody] QuestResultViewModel questResultViewModel)
         {
-            await questResultService.AddQuestResult(userId, questId, isCompleted, TimeInQuest, result, sentResultToEmail);
+            await questResultService.AddQuestResult(questResultViewModel.UserId, questResultViewModel.QuestId, questResultViewModel.IsCompleted, questResultViewModel.TimeInQuest,questResultViewModel.Result,questResultViewModel.SentResultToEmail);
+            //if sent to email == true sent user email with result зробити пізніше
             return StatusCode(StatusCodes.Status201Created);
         }
 
@@ -37,10 +39,9 @@ namespace Questor.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateQuestResult(int questResultId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail)
+        public async Task<IActionResult> UpdateQuestResult([FromBody] QuestResultViewModel questResultViewModel, int questResultId)
         {
-            await questResultService.UpdateQuestResult(questResultId, isCompleted, TimeInQuest, result, sentResultToEmail);
-            //if sent to email == true sent user email with result зробити пізніше
+            await questResultService.UpdateQuestResult(questResultId,questResultViewModel.IsCompleted,questResultViewModel.TimeInQuest,questResultViewModel.Result,questResultViewModel.SentResultToEmail);
             return StatusCode(StatusCodes.Status200OK);
         }
 
