@@ -24,7 +24,7 @@ builder.Services.AddScoped<IQuestionService, QuestionService>();
 builder.Services.AddScoped<IAnswerRepository, AnswerRepository>();
 builder.Services.AddScoped<IAnswerService, AnswerService>();
 builder.Services.AddScoped<IQuestResoultRepository, QuestResultRepository>();
-builder.Services.AddScoped<QuestResultService, QuestResultService>();
+builder.Services.AddScoped<IQuestResultService, QuestResultService>();
 builder.Services.AddScoped<UserValidator>();
 
 // For Entity Framework
