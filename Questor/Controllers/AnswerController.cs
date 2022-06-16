@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Questor.DAL.Models;
+using Questor.DAL.Models.ViewModels;
 using Questor.Services.Interfaces;
 
 namespace Questor.Controllers
@@ -22,9 +23,9 @@ namespace Questor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAnswer(string value, int questionId, bool isCorrect)
+        public async Task<IActionResult> AddAnswer([FromBody] AnswerViewModel answerViewModel)
         {
-            await answerService.AddAnswer(value, questionId, isCorrect);
+            await answerService.AddAnswer(answerViewModel.Value, answerViewModel.QuestionId, answerViewModel.IsCorrect);
             return StatusCode(StatusCodes.Status201Created);
         }
 
@@ -36,9 +37,9 @@ namespace Questor.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateAnswer(int answerId, string value, bool isCorrect)
+        public async Task<IActionResult> UpdateAnswer([FromBody] AnswerViewModel answerViewMode, int answerId)
         {
-            await answerService.UpdateAnswer(answerId, value, isCorrect);
+            await answerService.UpdateAnswer(answerId, answerViewMode.Value, answerViewMode.IsCorrect);
             return StatusCode(StatusCodes.Status200OK);
         }
 

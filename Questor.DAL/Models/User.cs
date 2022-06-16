@@ -10,9 +10,7 @@ namespace Questor.DAL.Models
 {
     public class User : IdentityUser
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Year { get; set; }
         public List<Quest> CreatedQuests { get; set; }
         public List<QuestResult> CompletedQuests { get; set; }
     }

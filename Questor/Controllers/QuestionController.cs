@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Questor.DAL.Models;
 using Questor.DAL.Models.Enums;
+using Questor.DAL.Models.ViewModels;
 using Questor.Services.Interfaces;
 
 namespace Questor.Controllers
@@ -23,9 +24,9 @@ namespace Questor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuestion(string questionTitle, string linkToPhoto, int pointPerQuestion, QuestionType questionType, int questId)
+        public async Task<IActionResult> AddQuestion([FromBody] QuestionViewModel questionViewModel)
         {
-            await questionService.AddQuestion(questionTitle, linkToPhoto, pointPerQuestion, questionType, questId);
+            await questionService.AddQuestion(questionViewModel.Title, questionViewModel.LinkToPhoto,questionViewModel.PointPerQuestion, questionViewModel.QeustionType, questionViewModel.QuestId);
             return StatusCode(StatusCodes.Status201Created);
         }
 
@@ -37,9 +38,9 @@ namespace Questor.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateQuestion(int questionId, string questionTitle, string linkToPhoto, int pointPerQuestion, QuestionType questionType, int questId)
+        public async Task<IActionResult> UpdateQuestion([FromBody] QuestionViewModel questionViewModel, int questionId)
         {
-            await questionService.UpdateQuestion(questId, questionTitle, linkToPhoto, pointPerQuestion, questionType);
+            await questionService.UpdateQuestion(questionId, questionViewModel.Title,questionViewModel.LinkToPhoto, questionViewModel.PointPerQuestion, questionViewModel.QeustionType);
             return StatusCode(StatusCodes.Status200OK);
         }
 

@@ -12,8 +12,8 @@ using Questor.DAL;
 namespace Questor.DAL.Migrations
 {
     [DbContext(typeof(QuestorContext))]
-    [Migration("20220530093449_Initial")]
-    partial class Initial
+    [Migration("20220616112025_innit")]
+    partial class innit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -365,11 +365,7 @@ namespace Questor.DAL.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
+                    b.Property<string>("Year")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

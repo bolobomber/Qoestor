@@ -23,10 +23,10 @@ namespace Questor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuest([FromBody] QuestViewModel questViewModel, string userId)
+        public async Task<IActionResult> AddQuest([FromBody] QuestViewModel questViewModel)
         {   
             
-            await questService.AddQuest(questViewModel.Name, questViewModel.Description, questViewModel.IsPublic, questViewModel.WriteOffControlMode, questViewModel.TimeLimit, userId);
+            await questService.AddQuest(questViewModel.Name, questViewModel.Description, questViewModel.IsPublic, questViewModel.WriteOffControlMode, questViewModel.TimeLimit, questViewModel.UserId);
             return StatusCode(StatusCodes.Status201Created);
         }
 
@@ -38,11 +38,9 @@ namespace Questor.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateQuest(int questId, string questName, string questDescription,
-            bool isPublic, bool writeOffControleMode, int timeLimit)
+        public async Task<IActionResult> UpdateQuest([FromBody] QuestViewModel questViewModel, int questId)
         {
-            await questService.UpdateQuest(questId, questName, questDescription, isPublic, writeOffControleMode,
-                timeLimit);
+            await questService.UpdateQuest(questId, questViewModel.Name,questViewModel.Description,questViewModel.IsPublic,questViewModel.WriteOffControlMode,questViewModel.TimeLimit);
             return StatusCode(StatusCodes.Status200OK);
         }
 
