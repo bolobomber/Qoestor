@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Questor.DAL.Models;
 using Questor.DAL.Models.ViewModels;
 using Questor.Services.Interfaces;
+using Questor.Services.Services;
 
 namespace Questor.Controllers
 {
@@ -11,10 +14,14 @@ namespace Questor.Controllers
     public class QuestResultController : ControllerBase
     {
         public readonly IQuestResultService questResultService;
-
-        public QuestResultController(IQuestResultService questResultService)
+        public readonly IEmailService _emailService;
+        private readonly UserManager<IdentityUser> _userManager;
+        public QuestResultController(IQuestResultService questResultService, IEmailService emailService, UserManager<IdentityUser> userManager)
         {
             this.questResultService = questResultService;
+            _emailService = emailService;
+            _userManager = userManager;
+
         }
 
         [HttpGet]
@@ -27,7 +34,11 @@ namespace Questor.Controllers
         public async Task<IActionResult> AddQuestResult([FromBody] QuestResultViewModel questResultViewModel)
         {
             await questResultService.AddQuestResult(questResultViewModel.UserId, questResultViewModel.QuestId, questResultViewModel.IsCompleted, questResultViewModel.TimeInQuest,questResultViewModel.Result,questResultViewModel.SentResultToEmail);
-            //if sent to email == true sent user email with result зробити пізніше
+           if (questResultViewModel.IsCompleted && questResultViewModel.SentResultToEmail)
+           {
+               IdentityUser user = await _userManager.FindByIdAsync(questResultViewModel.UserId);
+               _emailService.SendEmailAsync(user.Email, "Questor",$"твій результат проходження квесту {questResultViewModel.Result}");
+            }
             return StatusCode(StatusCodes.Status201Created);
         }
 

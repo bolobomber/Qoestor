@@ -4,7 +4,7 @@ using Questor.DAL.Models;
 
 namespace Questor.Services.Validators;
 
-    public class UserValidator : AbstractValidator<User>
+   /* public class UserValidator : AbstractValidator<User>
     {
         public UserValidator()
         {
@@ -22,4 +22,4 @@ namespace Questor.Services.Validators;
                 .WithErrorCode(nameof(HttpStatusCode.BadRequest))
                 .WithMessage("Пароль должен иметь только числа");
         }
-    }
+    }*/

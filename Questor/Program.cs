@@ -9,8 +9,6 @@ using Questor.DAL.Interface.Repositories;
 using Questor.DAL.Repositories;
 using Questor.Services.Interfaces;
 using Questor.Services.Services;
-using Questor.Services.Validators;
-
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
@@ -25,7 +23,7 @@ builder.Services.AddScoped<IAnswerRepository, AnswerRepository>();
 builder.Services.AddScoped<IAnswerService, AnswerService>();
 builder.Services.AddScoped<IQuestResoultRepository, QuestResultRepository>();
 builder.Services.AddScoped<IQuestResultService, QuestResultService>();
-builder.Services.AddScoped<UserValidator>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 // For Entity Framework
 builder.Services.AddDbContext<QuestorContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));

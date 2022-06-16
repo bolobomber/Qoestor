@@ -26,8 +26,12 @@ namespace Questor.DAL.Repositories
 
         public async Task Delete(string id)
         {
-            context.Remove(await context.Users.FirstOrDefaultAsync(x => x.Id == id));
-            await context.SaveChangesAsync();
+            context
+                .Remove(await context
+                .Users
+                .FirstOrDefaultAsync(x => x.Id == id));
+            await context
+                .SaveChangesAsync();
         }
 
         public async Task Update(User user)
