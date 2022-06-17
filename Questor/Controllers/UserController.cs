@@ -106,7 +106,7 @@ namespace Questor.Controllers
             {
                 return NotFound();
             }
-            ChangePasswordViewModel model = new ChangePasswordViewModel { Id = user.Id, Email = user.Email };
+            ChangePasswordViewModel model = new ChangePasswordViewModel { Id = user.Id};
             return Ok(new Response { Status = "Success", Message = "User password changed successfully!" }); ;
         }
 
@@ -130,7 +130,7 @@ namespace Questor.Controllers
                     {
                         user.PasswordHash = _passwordHasher.HashPassword(user, model.NewPassword);
                         await _userManager.UpdateAsync(user);
-                        _emailService.SendEmailAsync(user.Email,"Questor","Ваш пароль було змінено!");
+                        //_emailService.SendEmailAsync(user.Email,"Questor","Ваш пароль було змінено!");
                         return Ok(new Response { Status = "Success", Message = "User password changed successfully!" });
                     }
                     else
