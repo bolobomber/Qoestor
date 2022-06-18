@@ -16,10 +16,11 @@ namespace Questor.DAL.Repositories
         {
             this.context = context;
         }
-        public async Task Add(Quest quest)
+        public async Task<int> Add(Quest quest)
         {
             await context.AddAsync(quest);
             await context.SaveChangesAsync();
+            return quest.Id;
         }
 
         public async Task Delete(int questId)

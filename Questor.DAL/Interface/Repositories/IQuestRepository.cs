@@ -4,7 +4,7 @@ namespace Questor.DAL.Interface.Repositories;
 
 public interface IQuestRepository
 {
-    public Task Add(Quest quest);
+    public Task<int> Add(Quest quest);
     public Task Delete(int questId);
     public Task Update(Quest quest);
     public Task<Quest> GetQuestById(int questId);

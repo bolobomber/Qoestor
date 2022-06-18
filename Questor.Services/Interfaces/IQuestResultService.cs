@@ -4,7 +4,7 @@ namespace Questor.Services.Interfaces;
 
 public interface IQuestResultService
 {
-    public Task AddQuestResult(string userId,int questId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail);
+    public Task<int> AddQuestResult(string userId,int questId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail);
     public Task DeleteQuestResult(int questResultId);
     public Task UpdateQuestResult(int questResultId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail);
     public Task<QuestResult> GetQuestResultById(int questResultId);

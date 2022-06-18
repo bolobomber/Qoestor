@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Questor.DAL.auth;
 using Questor.DAL.Models;
 using Questor.DAL.Models.ViewModels;
 using Questor.Services.Interfaces;
@@ -33,13 +34,13 @@ namespace Questor.Controllers
         [HttpPost]
         public async Task<IActionResult> AddQuestResult([FromBody] QuestResultViewModel questResultViewModel)
         {
-            await questResultService.AddQuestResult(questResultViewModel.UserId, questResultViewModel.QuestId, questResultViewModel.IsCompleted, questResultViewModel.TimeInQuest,questResultViewModel.Result,questResultViewModel.SentResultToEmail);
+           var a = await questResultService.AddQuestResult(questResultViewModel.UserId, questResultViewModel.QuestId, questResultViewModel.IsCompleted, questResultViewModel.TimeInQuest,questResultViewModel.Result,questResultViewModel.SentResultToEmail);
            if (questResultViewModel.IsCompleted && questResultViewModel.SentResultToEmail)
            {
                IdentityUser user = await _userManager.FindByIdAsync(questResultViewModel.UserId);
                _emailService.SendEmailAsync(user.Email, "Questor",$"твій результат проходження квесту {questResultViewModel.Result}");
             }
-            return StatusCode(StatusCodes.Status201Created);
+            return Ok(new Response { Status = "Success", Message = $"{a}" });
         }
 
         [HttpDelete]

@@ -11,10 +11,11 @@ public class AnswerRepository : IAnswerRepository
     {
         this.context = context;
     }
-    public async Task Add(Answer answer)
+    public async Task<int> Add(Answer answer)
     {
         await context.AddAsync(answer);
         await context.SaveChangesAsync();
+        return answer.Id;
     }
 
     public async Task Delete(int id)

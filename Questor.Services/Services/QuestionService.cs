@@ -13,7 +13,7 @@ public class QuestionService : IQuestionService
     {
         this.questionRepository = questionRepository;
     }
-    public async Task AddQuestion(string questionTitle, string linkToPhoto, int pointPerQuestion, QuestionType questionType, int questId)
+    public async Task<int> AddQuestion(string questionTitle, string linkToPhoto, int pointPerQuestion, QuestionType questionType, int questId)
     {
         var question = new Question()
         {
@@ -23,7 +23,7 @@ public class QuestionService : IQuestionService
             QeustionType = questionType,
             QuestId = questId
         };
-        await questionRepository.Add(question);
+       return await questionRepository.Add(question);
     }
 
     public async Task DeleteQuestion(int questionId)

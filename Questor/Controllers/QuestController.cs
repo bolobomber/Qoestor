@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Questor.DAL.auth;
 using Questor.DAL.Models;
 using Questor.DAL.Models.ViewModels;
 using Questor.Services.Interfaces;
@@ -24,10 +25,9 @@ namespace Questor.Controllers
 
         [HttpPost]
         public async Task<IActionResult> AddQuest([FromBody] QuestViewModel questViewModel)
-        {   
-            
-            await questService.AddQuest(questViewModel.Name, questViewModel.Description, questViewModel.IsPublic, questViewModel.WriteOffControlMode, questViewModel.TimeLimit, questViewModel.UserId);
-            return StatusCode(StatusCodes.Status201Created);
+        {
+           var a = await questService.AddQuest(questViewModel.Name, questViewModel.Description, questViewModel.IsPublic, questViewModel.WriteOffControlMode, questViewModel.TimeLimit, questViewModel.UserId);
+            return Ok(new Response { Status = "Success", Message = $"{a}" });
         }
 
         [HttpDelete]

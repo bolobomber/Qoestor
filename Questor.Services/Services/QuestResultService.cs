@@ -13,7 +13,7 @@ public class QuestResultService : IQuestResultService
         this.questResoultRepository = questResoultRepository;
     }
 
-    public async Task AddQuestResult(string userId, int questId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail)
+    public async Task<int> AddQuestResult(string userId, int questId, bool isCompleted, string TimeInQuest, int result, bool sentResultToEmail)
     {
         var questResult = new QuestResult()
         {
@@ -24,7 +24,7 @@ public class QuestResultService : IQuestResultService
             Result = result,
             SentResultToEmail = sentResultToEmail
         };
-        await questResoultRepository.Add(questResult);
+        return await questResoultRepository.Add(questResult);
     }
 
     public async Task DeleteQuestResult(int questResultId)
