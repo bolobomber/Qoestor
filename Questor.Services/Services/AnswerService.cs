@@ -12,7 +12,7 @@ public class AnswerService : IAnswerService
     {
         this.answerRepository = answerRepository;
     }
-    public async Task AddAnswer(string value, int questionId, bool isCorrect)
+    public async Task<int> AddAnswer(string value, int questionId, bool isCorrect)
     {
         var answer = new Answer()
         {
@@ -21,7 +21,8 @@ public class AnswerService : IAnswerService
             IsCorrect = isCorrect
         };
 
-        await answerRepository.Add(answer);
+       return await answerRepository.Add(answer);
+        
     }
 
     public async Task DeleteAnswer(int answerId)

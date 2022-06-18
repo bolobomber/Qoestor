@@ -11,10 +11,11 @@ public class QuestResultRepository : IQuestResoultRepository
     {
         this.context = context;
     }
-    public async Task Add(QuestResult questResult)
+    public async Task<int> Add(QuestResult questResult)
     {
         await context.AddAsync(questResult);
         await context.SaveChangesAsync();
+        return questResult.Id;
     }
 
     public async Task Delete(int questResultId)

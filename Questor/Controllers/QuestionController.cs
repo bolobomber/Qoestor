@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Questor.DAL.auth;
 using Questor.DAL.Models;
 using Questor.DAL.Models.Enums;
 using Questor.DAL.Models.ViewModels;
@@ -26,8 +27,8 @@ namespace Questor.Controllers
         [HttpPost]
         public async Task<IActionResult> AddQuestion([FromBody] QuestionViewModel questionViewModel)
         {
-            await questionService.AddQuestion(questionViewModel.Title, questionViewModel.LinkToPhoto,questionViewModel.PointPerQuestion, questionViewModel.QeustionType, questionViewModel.QuestId);
-            return StatusCode(StatusCodes.Status201Created);
+            var a = await questionService.AddQuestion(questionViewModel.Title, questionViewModel.LinkToPhoto,questionViewModel.PointPerQuestion, questionViewModel.QeustionType, questionViewModel.QuestId);
+            return Ok(new Response { Status = "Success", Message = $"{a}" }); ;
         }
 
         [HttpDelete]
